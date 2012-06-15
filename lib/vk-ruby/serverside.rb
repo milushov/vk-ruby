@@ -4,14 +4,14 @@ class VK::Serverside
   include VK::Core
   include ::Transformer
 
-  attr_accessor :app_secret
+  attr_accessor :app_secret, :settings
 
   def app_secret
     @app_secret ? @app_secret : VK.const_defined?(:APP_SECRET) ? VK::APP_SECRET : nil
   end
 
   def settings
-    @settings ? @settings : VK.const_defined?(:SETTINGS) ? VK::SETTINGS : 'notify,friends,offline'
+    @settings ? @settings : VK.const_defined?(:SETTINGS) ? VK::SETTINGS : 'notify,friends,audio'
   end
 
   def initialize params = {}
